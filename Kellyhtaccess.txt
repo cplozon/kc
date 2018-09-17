@@ -1,0 +1,56 @@
+RewriteOptions inherit
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+RewriteEngine On
+RewriteCond %{HTTPS} =on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteCond %{HTTP_HOST} ^randoribodywork\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.randoribodywork\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^chapelhill\.html$ "https\:\/\/randoribodywork\.com\/chapelhill\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^randoribodywork\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.randoribodywork\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^durham\.html$ "https\:\/\/randoribodywork\.com\/durham\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^randoribodywork\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.randoribodywork\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^sportmassage\.html$ "https\:\/\/randoribodywork\.com\/sportmassage\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^randoribodywork\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.randoribodywork\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^contact\.html$ "https\:\/\/randoribodywork\.com\/contact\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^randoribodywork\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.randoribodywork\.com$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^about\.html$ "https\:\/\/randoribodywork\.com\/about\.html" [R=301,L]
+
